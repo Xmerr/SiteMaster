@@ -3,15 +3,6 @@ process.env = {
     site: "xmer.pw"
 };
 
-(() => {
-    var os = require('os');
-    if(os.hostname().indexOf('xmer') !== -1) {
-        // Determine if it's my test server or not
-        process.env.port = 8080;
-        process.env.site = "website-xmer.c9users.io";
-    }
-})();
-
 var vhost = require('vhost'),
     express = require('express'),
     app = express(),
@@ -23,12 +14,9 @@ var subs = [];
 //        path: `menus.${process.env.site}`,
 //        data: require('./Menus/server.js')
 //    },
-//    {
-//        path: `playersarchive.pw`,
-//        data: require('./archiveStage/server.js')
-//    },
 //];
 
+// What site should be the "catch all"
 const CATCH_ALL = require('./PortfolioSite/server.js');
 
 var length = subs.length;
@@ -50,14 +38,19 @@ var end = () => {
     });
 };
 
+// If there are no subs launch the app as is
 if(length === 0)
     end();
 
+// Prep submodules
 else
     for(var i = length - 1; i >= 0; i--) {
         (index => subs[index].data(svr => {
-            app.use(vhost(subs[index].path, svr.app));
+            app.use(
+                vhost(subs[index].path, svr.app)
+            );
             
+            // Sets up the websocket server for each app
             if(svr.io)
                 svr.io(io);
 

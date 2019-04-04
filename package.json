@@ -4,13 +4,12 @@
   "description": "Controls the routing for the larger sites",
   "main": "start.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node start.js"
   },
   "author": "Wiley Hilton (Xmer)",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.5",
-    "os": "^0.1.1",
     "socket.io": "^2.0.3",
     "vhost": "^3.0.2"
   },
