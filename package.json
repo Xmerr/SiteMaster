@@ -4,7 +4,10 @@
   "description": "Controls the routing for the larger sites",
   "main": "start.js",
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "forever": "forever start start.js",
+    "restart": "forever restart start.js",
+    "stop": "forever stop start.js"
   },
   "author": "Wiley Hilton (Xmer)",
   "license": "ISC",

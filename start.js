@@ -16,7 +16,7 @@ if(os.hostname().indexOf('HILTON') != -1)
 var subs = require('./sites.js');
 
 // What site should be the "catch all"
-const CATCH_ALL = require('./PortfolioSite/server.js');
+const CATCH_ALL = require('./redirect.js');
 
 var length = subs.length;
 
