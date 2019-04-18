@@ -11,4 +11,4 @@ var subs = [
    }
 ];
 
-export default subs;
+module.exports = subs;
