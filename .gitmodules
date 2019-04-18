@@ -1,3 +1,6 @@
 [submodule "PortfolioSite"]
 	path = PortfolioSite
 	url = https://github.com/xmerr/PortfolioSite
+[submodule "AvatarCraft"]
+	path = AvatarCraft
+	url = https://github.com/Xmerr/AvatarCraft

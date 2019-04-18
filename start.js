@@ -6,15 +6,14 @@ process.env = {
 var vhost = require('vhost'),
     express = require('express'),
     app = express(),
+    os = require('os'),
     http = require('http').createServer(app),
     io = require('socket.io')(http);
 
-var subs = [];
-//    {
-//        path: `menus.${process.env.site}`,
-//        data: require('./Menus/server.js')
-//    },
-//];
+if(os.hostname().indexOf('HILTON') != -1) 
+    process.env.site = "localhost";
+
+var subs = require('./sites.js');
 
 // What site should be the "catch all"
 const CATCH_ALL = require('./PortfolioSite/server.js');
@@ -47,7 +46,7 @@ else
     for(var i = length - 1; i >= 0; i--) {
         (index => subs[index].data(svr => {
             app.use(
-                vhost(subs[index].path, svr.app)
+                vhost(`${subs[index].subdomain}.${process.env.site}`, svr.app)
             );
             
             // Sets up the websocket server for each app
