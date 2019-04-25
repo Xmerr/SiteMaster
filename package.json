@@ -5,8 +5,10 @@
   "main": "start.js",
   "scripts": {
     "start": "node start.js",
-    "forever": "forever start start.js",
-    "restart": "forever restart start.js",
+    "build": "node build.js",
+    "build:dev": "set development=1 && node build.js",
+    "forever": "npm run build && forever start start.js",
+    "restart": "npm run build && forever restart start.js",
     "stop": "forever stop start.js"
   },
   "author": "Wiley Hilton (Xmer)",

@@ -4,3 +4,6 @@
 [submodule "AvatarCraft"]
 	path = AvatarCraft
 	url = https://github.com/Xmerr/AvatarCraft
+[submodule "WoolyWilly"]
+	path = WoolyWilly
+	url = https://github.com/Xmerr/WoolyWilly
