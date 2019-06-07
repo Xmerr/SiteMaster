@@ -5,6 +5,11 @@ var subs = [
        path: 'AvatarCraft'
    },
    {
+       subdomain: 'df',
+       data: require('./DF/server.js'),
+       path: 'DF'
+   },
+   {
        subdomain: 'www',
        data: require('./PortfolioSite/server.js'),
        path: 'PortfolioSite'

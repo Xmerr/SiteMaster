@@ -1,0 +1,21 @@
+.Events{
+    display: flex;
+
+    & > div {
+        flex: 1 1 1px;
+    }
+
+    .ExpandedRow {
+        display: flex;
+        border: 1px solid black;
+        border-top: none;
+
+        width: 96%;
+        margin-left: 2%;
+        padding: 25px;
+
+        .desc {
+            flex: 1 1 1px;
+        }
+    }
+}
