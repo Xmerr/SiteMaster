@@ -18,5 +18,9 @@
     "socket.io": "^2.0.3",
     "vhost": "^3.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-swipe": "^6.0.4",
+    "swipe-js-iso": "^2.1.5"
+  }
 }
