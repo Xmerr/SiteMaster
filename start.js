@@ -10,7 +10,8 @@ var vhost = require('vhost'),
     http = require('http').createServer(app),
     io = require('socket.io')(http);
 
-if(os.hostname().indexOf('HILTON') != -1) 
+
+if(os.hostname().indexOf('HILTON') != -1 || os.hostname().indexOf('DESKTOP-PMF') != -1)
     process.env.site = "localhost";
 
 var subs = require('./sites.js');

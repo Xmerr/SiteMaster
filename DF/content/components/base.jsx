@@ -2,8 +2,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import openSocket from 'socket.io-client';
 import app from '_redux/reducers';
-import { initEvents } from '../.redux/actions';
+import { initEvents, setrsvp } from '../.redux/actions';
 import Events from './events';
+import SetUser from './setUser';
 
 require('./base.scss');
 
@@ -18,14 +19,19 @@ let store = createStore(app);
 global.getState = () => store.getState();
 
 // Starts the persistent connection to the socket server
-const socket = openSocket(location.href);
+const socket = openSocket(`http://${location.hostname}`);
 socket.on('initEvents', j => store.dispatch(initEvents(j)));
+socket.on('log', msg => console.log(msg));
 socket.emit('init');
+socket.on('attending', (event, data) => store.dispatch(setrsvp(event, data)));
+
+global.socket = socket;
 
 class Base extends React.Component{
     render() {
         return(
             <div className='MainArea'>
+                <SetUser />
                 <Events />
             </div>
         );

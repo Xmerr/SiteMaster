@@ -40,7 +40,7 @@ class Events extends React.Component{
                         data={this.props.events}
 
                         expandableRows
-                        expandableRowsComponent={<ExpandedRow />}
+                        expandableRowsComponent={<ExpandedRow user={this.props.user} />}
                     />
                 </div>
             </div>
@@ -53,7 +53,8 @@ Events.propTypes={
 
 const mapStateToProps = state => {
     return {
-        events: state.events
+        events: state.events,
+        user: state.user
     }
 };
 
