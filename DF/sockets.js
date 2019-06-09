@@ -49,7 +49,7 @@ module.exports = sock => {
                             d = JSON.parse(d);
 
                             if(typeof(d.coming) === "boolean")
-                                client.emit('attending', event, d);
+                                client.emit('attending', event, d.coming);
 
                             else
                                 me(me);
@@ -76,9 +76,6 @@ module.exports = sock => {
                     //This means it failed;
                     if(body)
                         me(me);
-
-                    else 
-                        client.emit('attending', event, status);
                 });
             }
 

@@ -1,3 +1,5 @@
+import { connect } from 'react-redux';
+import { setrsvp } from '../../.redux/actions';
 
 // Displays the event details under each table row
 class ExpandedRow extends React.Component{
@@ -42,7 +44,10 @@ class ExpandedRow extends React.Component{
                 </div>
                 <div>
                     <label>Attending</label>
-                    <input type="checkbox" checked={this.props.data.coming} onClick={e => global.socket.emit('rsvp', this.props.data.id, this.props.user, e.target.checked)}/>
+                    <input type="checkbox" defaultChecked={this.props.data.coming} onClick={e => {
+                        this.props.setRsvp(this.props.data.id, e.target.checked);
+                        global.socket.emit('rsvp', this.props.data.id, this.props.user, e.target.checked);
+                    }}/>
                 </div>
                 <div>
                     <label>Comments</label>
@@ -69,4 +74,15 @@ ExpandedRow.propTypes={
     user: PropTypes.string.isRequired, // User
 };
 
-export default ExpandedRow;
+const mapStateToProps = state => {
+    return {
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setRsvp: (event, data) => dispatch(setrsvp(event, data))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpandedRow);

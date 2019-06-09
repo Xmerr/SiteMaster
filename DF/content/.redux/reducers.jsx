@@ -14,12 +14,14 @@ const events = (state = [], action) => {
             return action.events;
 
         case actions.SET_RSVP:
-            return state.map(eve => {
-                if(eve.id === action.event)
-                    eve.coming = action.data.coming;
+            return [...state.map(eve => {
+                if(eve.id === action.event) {
+                    eve.coming = action.coming;
+                    return JSON.parse(JSON.stringify(eve));
+                }
 
                 return eve;
-            });
+            })];
 
         default:
             return state;

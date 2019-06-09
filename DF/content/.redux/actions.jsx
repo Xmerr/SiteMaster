@@ -4,11 +4,12 @@ export const actions = {
     SET_RSVP: "Sets if the current user is attending a specific event"
 };
 
-export const setrsvp = (event, data) => {
+export const setrsvp = (event, coming) => {
+    console.log("action", coming);
     return {
         type: actions.SET_RSVP,
         event,
-        data
+        coming
     }
 }
 
