@@ -4,3 +4,6 @@
 [submodule "AvatarCraft"]
 	path = AvatarCraft
 	url = https://github.com/Xmerr/AvatarCraft
+[submodule "DF"]
+	path = DF
+	url = https://github.com/Xmerr/DF
