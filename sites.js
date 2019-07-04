@@ -10,6 +10,11 @@ var subs = [
        path: 'DF'
    },
    {
+       subdomain: 'tasks',
+       data: require('./TaskTracker/server.js'),
+       path: 'TaskTracker'
+   },
+   {
        subdomain: 'www',
        data: require('./PortfolioSite/server.js'),
        path: 'PortfolioSite'

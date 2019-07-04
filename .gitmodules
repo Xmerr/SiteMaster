@@ -7,3 +7,7 @@
 [submodule "DF"]
 	path = DF
 	url = https://github.com/Xmerr/DF
+[submodule "TaskTracker"]
+	path = TaskTracker
+	url = https://github.com/xmer-tools/TaskTracker
+	branch = master
